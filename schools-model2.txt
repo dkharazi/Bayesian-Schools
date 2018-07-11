@@ -1,0 +1,19 @@
+model
+{
+  for(i in 1:nStudents){
+      Y[i] ~ dnorm(mu_st[i], tau2)
+      mu_st[i] <- alpha[School[i]]+beta_st[1] + beta_st[2]*LRT[i]+beta_st[3]*VR1[i]+beta_st[4]*VR2[i]+beta_st[5]*Gender[i]
+    }
+    for(j in 1:nSchools){
+      alpha[j] ~ dnorm(mu_sc[j], tau2_alpha)
+      mu_sc[j] <- beta_sc[1]*CE[j] + beta_sc[2]*RC[j] + beta_sc[3]*Other[j] + beta_sc[4]*Girls[j] + beta_sc[5]*Boys[j]
+		}
+    for(k in 1:pStudents){
+      beta_st[k] ~ dnorm(0.0, 0.001)
+    }
+    for(l in 1:pSchools){
+        beta_sc[l] ~ dnorm(0.0, 0.001)
+    }      
+    tau2 ~ dgamma(0.01,0.01)
+    tau2_alpha ~ dgamma(0.01,0.01)
+}
