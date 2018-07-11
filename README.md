@@ -4,7 +4,7 @@ A survey was conducted to rank schools given some data about the students. Our g
 
 ## Variable Descriptions
 
-- `Y:` The response variable.
+- `Y:` The response.
 - `LRT:` LRT.
 - `VR1:` VR1.
 - `VR2:` VR2.
